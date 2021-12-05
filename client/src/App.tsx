@@ -1,8 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
+import { Route, Routes } from "react-router";
+import Homepage from "./Screens/Homepage";
+import Landing from "./Screens/Landing";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <Routes>
+      <Route path="/landing" element={<Landing />} />
+      <Route path="/home" element={<Homepage />} />
+    </Routes>
+  );
 }
 
 export default App;
