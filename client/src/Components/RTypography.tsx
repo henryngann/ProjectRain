@@ -13,7 +13,7 @@ const RTypography: React.FC<TypographyProps> = ({
   const typographyStyle = useTypography();
 
   return (
-    <Typography className={clsx(typographyStyle[variant])} variant="inherit">
+    <Typography className={clsx(typographyStyle[variant])}>
       {children}
     </Typography>
   );
