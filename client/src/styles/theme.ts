@@ -1,37 +1,46 @@
-import { createTheme, Theme } from "@mui/material";
-import { globalStyle, StyleGuide } from "./style-guide";
+import { blueGrey, orange, red } from "@mui/material/colors";
+import {
+  createTheme,
+  PaletteColor,
+  PaletteColorOptions,
+  Theme,
+} from "@mui/material/styles";
 
-export interface themeOne extends Theme {
-  styleGuide?: StyleGuide;
+declare module "@mui/material/styles" {
+  interface Palette {
+    extra?: PaletteColor;
+  }
+
+  interface PaletteOptions {
+    extra?: PaletteColorOptions;
+  }
 }
-export const theme = (): themeOne => {
-  let styleGuide = globalStyle;
 
-  const baseTheme = createTheme({
-    palette: {},
-    typography: {
-      h1: {
-        ...styleGuide.typography.h1,
-      },
-      h2: {
-        ...styleGuide.typography.h2,
-      },
-      subtitle1: {
-        ...styleGuide.typography.subtitle1,
-      },
-      subtitle2: {
-        ...styleGuide.typography.subtitle2,
-      },
-      body1: {
-        ...styleGuide.typography.body1,
-      },
-      body2: {
-        ...styleGuide.typography.body2,
-      },
-      caption: {
-        ...styleGuide.typography.caption1,
-      },
-    },
-  });
-  return { ...baseTheme, styleGuide };
+const breakpoints = {
+  values: {
+    xs: 0,
+    sm: 960,
+    md: 1280,
+    lg: 1600,
+    xl: 1920,
+  },
 };
+
+const baseTheme = createTheme({ breakpoints, palette: { mode: "light" } });
+
+export const defaultTheme = createTheme({
+  breakpoints,
+  palette: {
+    mode: baseTheme.palette.mode,
+    background: {
+      default:
+        baseTheme.palette.mode === "dark" ? blueGrey[800] : blueGrey[200],
+    },
+    primary: {
+      main: orange[500],
+    },
+    extra: {
+      main: red[500],
+    },
+  },
+});
