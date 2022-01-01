@@ -54,4 +54,7 @@ export const defaultTheme = createTheme({
       main: red[500],
     },
   },
+  typography: {
+    fontFamily: "",
+  },
 });
