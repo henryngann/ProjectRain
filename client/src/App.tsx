@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@mui/material";
 import React from "react";
 import { Route, Routes } from "react-router";
-import Homepage from "./Screens/Homepage";
-import Landing from "./Screens/Landing";
+import Homepage from "./Components/pages/Homepage";
+import Landing from "./Components/pages/Landing";
 import { defaultTheme } from "./styles/theme";
 
 function App() {
