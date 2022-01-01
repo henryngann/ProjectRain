@@ -9,7 +9,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Routes>
-        <Route path="/landing" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Homepage />} />
       </Routes>
     </ThemeProvider>
