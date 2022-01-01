@@ -1,8 +1,10 @@
+import { MenuBook } from "@mui/icons-material";
 import {
   AppBar,
   Box,
   Button,
   Container,
+  IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -22,7 +24,7 @@ const Navbar = () => {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuBook />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
