@@ -1,10 +1,12 @@
 import React from "react";
+import Navbar from "../organisms/Navbar";
 import "./Global.css";
 
 function Landing() {
   return (
     <>
-      <div style={{ backgroundColor: "red", width: "50", height: "50" }} />
+      <Navbar />
+      <div style={{ backgroundColor: "red", width: 50, height: 50 }} />
     </>
   );
 }
