@@ -47,13 +47,20 @@ export const defaultTheme = createTheme({
         baseTheme.palette.mode === "dark" ? blueGrey[800] : blueGrey[200],
     },
     primary: {
-      main: orange[500],
+      main: `#447BF3`,
+    },
+    secondary: {
+      main: `#F0F3FE`,
+    },
+    info: {
+      main: `#FF6C63`,
     },
     extra: {
       main: red[500],
     },
   },
   typography: {
+    h1: { fontSize: 24, lineHeight: 32.68 },
     fontFamily: "",
   },
 });
