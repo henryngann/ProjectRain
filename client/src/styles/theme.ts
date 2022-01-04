@@ -1,4 +1,4 @@
-import { blueGrey, orange, red } from "@mui/material/colors";
+import { blueGrey, red } from "@mui/material/colors";
 import {
   createTheme,
   PaletteColor,
@@ -24,8 +24,20 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     extra?: PaletteColorOptions;
   }
-}
+  interface TypographyVariants {
+    bigTitle: React.CSSProperties;
+  }
 
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    bigTitle?: React.CSSProperties;
+  }
+}
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    bigTitle: true;
+  }
+}
 const breakpoints = {
   values: {
     xs: 0,
@@ -60,7 +72,14 @@ export const defaultTheme = createTheme({
     },
   },
   typography: {
+    bigTitle: {
+      fontSize: 144,
+      fontWeight: "bold",
+    },
     h1: { fontSize: 24, lineHeight: 32.68 },
+    subtitle1: {
+      fontSize: 36,
+    },
     fontFamily: "",
   },
 });
