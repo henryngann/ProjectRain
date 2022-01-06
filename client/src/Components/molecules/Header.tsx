@@ -3,7 +3,13 @@ import React from "react";
 
 const Header = () => {
   return (
-    <Grid container item direction="column" justifyContent={"center"}>
+    <Grid
+      container
+      item
+      direction="column"
+      justifyContent={"center"}
+      maxWidth={"10vw"}
+    >
       <Grid item>
         <Typography variant="bigTitle">Project</Typography>
       </Grid>
