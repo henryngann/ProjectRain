@@ -1,11 +1,10 @@
 import React from "react";
-import Navbar from "../organisms/Navbar";
+import SideDrawer from "../organisms/SideDrawer";
 
 function Homepage() {
   return (
     <>
-      <Navbar />
-      <div>Homepage</div>
+      <SideDrawer />
     </>
   );
 }

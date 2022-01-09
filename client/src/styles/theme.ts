@@ -77,6 +77,7 @@ export const defaultTheme = createTheme({
       fontWeight: "bold",
     },
     h1: { fontSize: 24, lineHeight: 32.68 },
+    h2: { fontSize: 24, fontWeight: 600 },
     subtitle1: {
       fontSize: 36,
     },
