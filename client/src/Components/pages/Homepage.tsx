@@ -1,10 +1,10 @@
 import React from "react";
-import SideDrawer from "../organisms/SideDrawer";
+import SideDrawerHome from "../organisms/SideDrawerHome";
 
 function Homepage() {
   return (
     <>
-      <SideDrawer />
+      <SideDrawerHome />
     </>
   );
 }
