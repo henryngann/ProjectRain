@@ -118,7 +118,17 @@ const OSRSItems = () => {
     <>
       {isLoading && <p>Loading data...</p>}
       {error && <p>An error occurred</p>}
-      {result && <>{result._items[0].cost}</>}
+      {result && (
+        <>
+          {result._items.map((item, it) => {
+            return (
+              <>
+                <img src={`data:image/png;base64,${result?._items[it].icon}`} />
+              </>
+            );
+          })}
+        </>
+      )}
     </>
   );
 };

@@ -72,7 +72,8 @@ const SideDrawerHome = () => {
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
         <Toolbar />
-
+        {/* Right Side View Here */}
+        <Typography>Random 25 Items</Typography>
         <OSRSItems />
       </Box>
     </Box>
