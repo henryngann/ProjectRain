@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ItemCard from "./ItemCard";
 export interface Root {
   _items: Item[];
   _links: Links2;
@@ -92,7 +93,7 @@ const OSRSItems = () => {
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const url = "https://api.osrsbox.com/items";
+  const url = "https://api.osrsbox.com/items?page=2";
 
   const doCall = () =>
     fetch(url)
@@ -123,12 +124,16 @@ const OSRSItems = () => {
           {result._items.map((item, it) => {
             return (
               <>
-                <img src={`data:image/png;base64,${result?._items[it].icon}`} />
+                <img
+                  alt="Items"
+                  src={`data:image/png;base64,${result?._items[it].icon}`}
+                />
               </>
             );
           })}
         </>
       )}
+      <ItemCard />
     </>
   );
 };
