@@ -88,7 +88,7 @@ export interface Meta {
 }
 
 const OSRSItems = () => {
-  const [result, setResult] = useState<Item[]>([]);
+  const [result, setResult] = useState<Root>();
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -97,7 +97,7 @@ const OSRSItems = () => {
   const doCall = () =>
     fetch(url)
       .then((res) => res.json())
-      .then((result) => result as Item[]);
+      .then((result) => result as Root);
 
   useEffect(() => {
     doCall().then(
@@ -113,12 +113,12 @@ const OSRSItems = () => {
   }, []);
 
   console.log(result);
-  console.log(result[0]?.cost);
+
   return (
     <>
       {isLoading && <p>Loading data...</p>}
       {error && <p>An error occurred</p>}
-      {result && <>{result[0]?.cost}</>}
+      {result && <>{result._items[0].cost}</>}
     </>
   );
 };
