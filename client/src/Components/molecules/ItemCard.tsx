@@ -14,7 +14,7 @@ interface CardProps {
 
 export const ItemCard = ({ width, image, itemName, itemDesc }: CardProps) => {
   return (
-    <Card sx={{ maxWidth: 254 }}>
+    <Card sx={{ maxWidth: 164 }}>
       <CardActionArea>
         <CardMedia
           component="img"
