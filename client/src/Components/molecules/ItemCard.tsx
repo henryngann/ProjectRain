@@ -7,12 +7,19 @@ import { CardActionArea } from "@mui/material";
 
 interface CardProps {
   width?: number;
+  height?: number;
   image?: string;
   itemName?: string;
   itemDesc?: string;
 }
 
-export const ItemCard = ({ width, image, itemName, itemDesc }: CardProps) => {
+export const ItemCard = ({
+  width,
+  height,
+  image,
+  itemName,
+  itemDesc,
+}: CardProps) => {
   return (
     <Card sx={{ maxWidth: 164 }}>
       <CardActionArea>
