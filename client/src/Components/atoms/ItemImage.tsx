@@ -1,7 +1,11 @@
 import React from "react";
 
-const ItemImage = () => {
-  return <div></div>;
+interface itemProps {
+  width?: number;
+  height?: number;
+}
+const ItemImage = ({ width, height }: itemProps) => {
+  return <img width={width} height={height} src="" />;
 };
 
 export default ItemImage;
