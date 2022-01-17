@@ -81,6 +81,10 @@ export const defaultTheme = createTheme({
     subtitle1: {
       fontSize: 36,
     },
+    subtitle2: {
+      fontSize: 14,
+      fontWeight: 800,
+    },
     fontFamily: "",
   },
 });

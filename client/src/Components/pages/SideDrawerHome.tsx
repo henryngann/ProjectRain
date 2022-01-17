@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "../atoms/Searchbar";
 import OSRSItems from "../organisms/OSRSItems";
 
@@ -48,7 +49,11 @@ const SideDrawerHome = () => {
           anchor="left"
         >
           <Toolbar>
-            <Typography variant="h2">Snipp</Typography>
+            <Typography variant="h2">
+              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+                Snipp
+              </Link>
+            </Typography>
           </Toolbar>
 
           <Divider />
@@ -93,7 +98,6 @@ const SideDrawerHome = () => {
           </Box>
         </Box>
       </Box>
-      {/* Bottom Side View Here */}
     </>
   );
 };
