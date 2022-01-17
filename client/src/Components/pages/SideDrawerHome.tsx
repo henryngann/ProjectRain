@@ -11,6 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import SearchBar from "../atoms/Searchbar";
 import OSRSItems from "../molecules/OSRSItems";
 
 const drawerWidth = 240;
@@ -73,6 +74,7 @@ const SideDrawerHome = () => {
       >
         <Toolbar />
         {/* Right Side View Here */}
+        <SearchBar />
         <Typography>Random 25 Items</Typography>
         <OSRSItems />
       </Box>

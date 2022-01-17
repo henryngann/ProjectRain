@@ -22,7 +22,7 @@ const OSRSItems = () => {
           })}
         </>
       )}
-      <ItemCard />
+      <ItemCard image={`data:image/png;base64,${result?._items[0].icon}`} />
     </>
   );
 };
