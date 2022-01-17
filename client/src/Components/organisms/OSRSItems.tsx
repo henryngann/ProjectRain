@@ -15,6 +15,7 @@ const OSRSItems = () => {
             return (
               <Grid item xs sm>
                 <ItemCard
+                  itemName={result?._items[it].name}
                   image={`data:image/png;base64,${result?._items[it].icon}`}
                 />
               </Grid>
