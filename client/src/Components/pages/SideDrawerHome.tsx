@@ -1,6 +1,7 @@
+import CasinoIcon from "@mui/icons-material/Casino";
 import MailIcon from "@mui/icons-material/Mail";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -19,6 +20,10 @@ import OSRSItems from "../organisms/OSRSItems";
 const drawerWidth = 240;
 
 const SideDrawerHome = () => {
+  const randomButton = () => {
+    console.log("pressed");
+  };
+
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -88,10 +93,17 @@ const SideDrawerHome = () => {
           <SearchBar />
           {/* Search Bar Content Here*/}
           <Box marginTop={30}>
-            <Divider textAlign="center" sx={{ marginY: 10 }}>
-              <Typography variant="h2">Random 25 Items</Typography>
+            <Divider textAlign="left" sx={{ marginY: 10 }}>
+              <Typography variant="h2">hi</Typography>
             </Divider>
-
+            <IconButton
+              color="info"
+              sx={{ p: "10px" }}
+              aria-label="directions"
+              onClick={randomButton}
+            >
+              <CasinoIcon />
+            </IconButton>
             <Grid container direction="row" spacing={4}>
               <OSRSItems />
             </Grid>

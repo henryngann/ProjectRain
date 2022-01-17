@@ -111,8 +111,7 @@ export default function useRandomImageApi() {
         setError(e);
       }
     );
-    doCall();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return { result, error, isLoading };
+  return { doCall, result, error, isLoading };
 }
