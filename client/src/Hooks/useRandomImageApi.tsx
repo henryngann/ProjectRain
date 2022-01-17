@@ -87,12 +87,13 @@ export interface Meta {
   total: number;
 }
 
-export default function useImageApi() {
+export default function useRandomImageApi() {
   const [result, setResult] = useState<Root>();
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const url = "https://api.osrsbox.com/items?page=2";
+  let randomNumber = Math.floor(Math.random() * 100);
+  const url = `https://api.osrsbox.com/items?page=${randomNumber}`;
 
   const doCall = () =>
     fetch(url)
@@ -110,7 +111,8 @@ export default function useImageApi() {
         setError(e);
       }
     );
-  }, []);
+    doCall();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return { result, error, isLoading };
 }

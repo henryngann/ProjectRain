@@ -36,6 +36,7 @@ const SideDrawerHome = () => {
         </AppBar>
         <Drawer
           sx={{
+            height: `100vh`,
             width: drawerWidth,
             flexShrink: 0,
             "& .MuiDrawer-paper": {
@@ -81,13 +82,18 @@ const SideDrawerHome = () => {
 
           <SearchBar />
           {/* Search Bar Content Here*/}
+          <Box marginTop={30}>
+            <Divider textAlign="center" sx={{ marginY: 10 }}>
+              <Typography variant="h2">Random 25 Items</Typography>
+            </Divider>
+
+            <Grid container direction="row" spacing={4}>
+              <OSRSItems />
+            </Grid>
+          </Box>
         </Box>
       </Box>
       {/* Bottom Side View Here */}
-      <Typography>Random 25 Items</Typography>
-      <Grid container spacing={6} direction="row">
-        <OSRSItems />
-      </Grid>
     </>
   );
 };

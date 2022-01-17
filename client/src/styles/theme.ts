@@ -1,4 +1,4 @@
-import { blueGrey, red } from "@mui/material/colors";
+import { blueGrey, grey } from "@mui/material/colors";
 import {
   createTheme,
   PaletteColor,
@@ -68,7 +68,7 @@ export const defaultTheme = createTheme({
       main: `#FF6C63`,
     },
     extra: {
-      main: red[500],
+      main: grey[400],
     },
   },
   typography: {

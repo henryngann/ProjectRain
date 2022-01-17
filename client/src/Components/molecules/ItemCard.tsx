@@ -1,9 +1,9 @@
-import * as React from "react";
+import { CardActionArea, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import * as React from "react";
+import ItemImage from "../atoms/ItemImage";
 
 interface CardProps {
   width?: number;
@@ -11,6 +11,7 @@ interface CardProps {
   image?: string;
   itemName?: string;
   itemDesc?: string;
+  imageKey?: number;
 }
 
 export const ItemCard = ({
@@ -18,23 +19,19 @@ export const ItemCard = ({
   height,
   image,
   itemName,
+  imageKey,
   itemDesc,
 }: CardProps) => {
   return (
-    <Card sx={{ width: 75 }}>
+    <Card sx={{ width: 164, height: 109 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          image={image}
-          alt={`Display of ${itemName}`}
-        />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {itemName}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {itemDesc}
-          </Typography>
+          <Stack direction="column" alignItems="center" justifyContent="center">
+            <ItemImage src={image} width={50} height={50} id={imageKey} />
+            <Typography gutterBottom variant="subtitle2" component="div">
+              {itemName}
+            </Typography>
+          </Stack>
         </CardContent>
       </CardActionArea>
     </Card>

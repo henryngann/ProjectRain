@@ -4,10 +4,17 @@ interface itemProps {
   width?: number;
   height?: number;
   src?: string;
+  id?: number;
 }
-const ItemImage = ({ width, height, src }: itemProps) => {
+const ItemImage = ({ width, height, src, id }: itemProps) => {
   return (
-    <img width={width} height={height} src={`data:image/png;base64,${src}`} />
+    <img
+      alt="Media"
+      key={id}
+      width={width}
+      height={height}
+      src={`data:image/png;base64,${src}`}
+    />
   );
 };
 
