@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import Header from "../molecules/Header";
+import Header from "../atoms/Header";
 import NavButton from "../molecules/NavButton";
 import "./Global.css";
 

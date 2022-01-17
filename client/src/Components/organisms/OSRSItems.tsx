@@ -1,6 +1,7 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import useImageApi from "../../Hooks/useImageApi";
-import ItemCard from "./ItemCard";
+import ItemCard from "../molecules/ItemCard";
 
 const OSRSItems = () => {
   const { result, error, isLoading } = useImageApi();
@@ -12,17 +13,15 @@ const OSRSItems = () => {
         <>
           {result._items.map((item, it) => {
             return (
-              <>
-                <img
-                  alt="Items"
-                  src={`data:image/png;base64,${result?._items[it].icon}`}
+              <Grid item xs sm>
+                <ItemCard
+                  image={`data:image/png;base64,${result?._items[it].icon}`}
                 />
-              </>
+              </Grid>
             );
           })}
         </>
       )}
-      <ItemCard image={`data:image/png;base64,${result?._items[0].icon}`} />
     </>
   );
 };

@@ -21,11 +21,10 @@ export const ItemCard = ({
   itemDesc,
 }: CardProps) => {
   return (
-    <Card sx={{ maxWidth: 164 }}>
+    <Card sx={{ width: 75 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
           image={image}
           alt={`Display of ${itemName}`}
         />
