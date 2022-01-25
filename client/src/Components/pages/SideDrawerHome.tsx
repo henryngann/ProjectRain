@@ -61,6 +61,9 @@ const SideDrawerHome = () => {
             </Typography>
           </Toolbar>
 
+          {/*Move Random into Side Drawer Random
+               Make searchbar functional
+            */}
           <Divider />
           <List>
             {["Home", "Search", "Settings"].map((text, index) => (
