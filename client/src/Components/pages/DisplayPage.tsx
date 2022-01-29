@@ -5,14 +5,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import OSRSItems from "../organisms/OSRSItems";
-import SideDrawer from "../organisms/SideDrawer";
 import TopNavBar from "../organisms/TopNavBar";
 
 const DisplayPage = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
-      <SideDrawer />
+
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}

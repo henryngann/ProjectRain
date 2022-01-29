@@ -4,14 +4,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import SearchBar from "../atoms/Searchbar";
-import SideDrawer from "../organisms/SideDrawer";
 import TopNavBar from "../organisms/TopNavBar";
 
 const SearchPage = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
-      <SideDrawer />
+
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}

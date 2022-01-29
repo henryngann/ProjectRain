@@ -17,19 +17,7 @@ const drawerWidth = 240;
 
 const SideDrawer = () => {
   return (
-    <Drawer
-      sx={{
-        height: `100vh`,
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-          boxSizing: "border-box",
-        },
-      }}
-      variant="permanent"
-      anchor="left"
-    >
+    <>
       <Toolbar>
         <Typography variant="h2">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
@@ -73,7 +61,7 @@ const SideDrawer = () => {
           </Link>
         ))}
       </List>
-    </Drawer>
+    </>
   );
 };
 

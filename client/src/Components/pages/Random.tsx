@@ -5,7 +5,6 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import OSRSItems from "../organisms/OSRSItems";
-import SideDrawer from "../organisms/SideDrawer";
 import TopNavBar from "../organisms/TopNavBar";
 
 const Random = () => {
@@ -16,7 +15,7 @@ const Random = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
-      <SideDrawer />
+
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
