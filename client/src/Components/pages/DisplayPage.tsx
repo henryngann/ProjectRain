@@ -4,12 +4,11 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import SearchBar from "../atoms/Searchbar";
 import OSRSItems from "../organisms/OSRSItems";
 import SideDrawer from "../organisms/SideDrawer";
 import TopNavBar from "../organisms/TopNavBar";
 
-const Homepage = () => {
+const DisplayPage = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
@@ -20,7 +19,6 @@ const Homepage = () => {
       >
         <Toolbar />
 
-        <SearchBar />
         {/* Search Bar Content Here*/}
         <Box marginTop={30}>
           <Divider textAlign="left" sx={{ marginY: 10 }}>
@@ -34,4 +32,4 @@ const Homepage = () => {
     </Box>
   );
 };
-export default Homepage;
+export default DisplayPage;

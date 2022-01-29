@@ -1,5 +1,7 @@
+import HomeIcon from "@mui/icons-material/Home";
 import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import SearchIcon from "@mui/icons-material/Search";
+import ShuffleIcon from "@mui/icons-material/Shuffle";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -41,14 +43,14 @@ const SideDrawer = () => {
     */}
       <Divider />
       <List>
-        {["Home", "Search", "Settings"].map((text, index) => (
+        {["Home", "Search"].map((text, index) => (
           <Link
             to={`/${text}`}
             style={{ textDecoration: "none", color: "#000000" }}
           >
             <ListItem button key={text} sx={{}}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <HomeIcon /> : <SearchIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -57,14 +59,14 @@ const SideDrawer = () => {
       </List>
       <Divider />
       <List>
-        {["Random", "Random Two", "Random Three"].map((text, index) => (
+        {["Random", "Contact"].map((text, index) => (
           <Link
             to={`/${text}`}
             style={{ textDecoration: "none", color: "#000000" }}
           >
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <ShuffleIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
