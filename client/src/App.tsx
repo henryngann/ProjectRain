@@ -1,8 +1,9 @@
 import { ThemeProvider } from "@mui/material";
 import React from "react";
 import { Route, Routes } from "react-router";
+import Homepage from "./Components/pages/Homepage";
 import Landing from "./Components/pages/Landing";
-import SideDrawerHome from "./Components/pages/SideDrawerHome";
+import Random from "./Components/pages/Random";
 import { defaultTheme } from "./styles/theme";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<SideDrawerHome />} />
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/random" element={<Random />} />
       </Routes>
     </ThemeProvider>
   );
