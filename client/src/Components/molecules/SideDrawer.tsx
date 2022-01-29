@@ -3,7 +3,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import SearchIcon from "@mui/icons-material/Search";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -25,10 +24,6 @@ const SideDrawer = () => {
           </Link>
         </Typography>
       </Toolbar>
-
-      {/*Move Random into Side Drawer Random
-       Make searchbar functional
-    */}
       <Divider />
       <List>
         {["Home", "Search"].map((text, index) => (
