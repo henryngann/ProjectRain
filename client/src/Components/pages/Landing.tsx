@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import Header from "../atoms/Header";
-import NavButton from "../molecules/NavButton";
+import NavButton from "../atoms/NavButton";
 import "./Global.css";
 
 function Landing() {
