@@ -19,12 +19,11 @@ const ContactPage = () => {
       >
         <Toolbar />
         <AvatarCard />
-
+        <Divider textAlign="center" sx={{ marginY: 5 }}>
+          <Typography variant="h2">Have an idea? Lets talk. </Typography>
+        </Divider>
         {/* Search Bar Content Here*/}
-        <Box>
-          <Divider textAlign="left" sx={{ marginY: 10 }}>
-            <Typography variant="h2">Contact Me!</Typography>
-          </Divider>
+        <Box display="flex" justifyContent="center">
           <FormCard />
         </Box>
       </Box>

@@ -33,7 +33,7 @@ export default function AvatarCard() {
             </Grid>
             <Grid item mt={5}>
               <Typography variant="subtitle2" color="text.secondary">
-                Have an idea? Lets talk! :D
+                Find more of my work here!
               </Typography>
             </Grid>
           </Grid>

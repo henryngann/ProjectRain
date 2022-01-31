@@ -1,4 +1,4 @@
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -6,7 +6,7 @@ import * as React from "react";
 
 export default function MediaControlCard() {
   return (
-    <Card sx={{ display: "flex", width: "50rem", height: "20rem" }}>
+    <Card sx={{ display: "flex" }}>
       <Box
         sx={{
           display: "flex",
@@ -21,18 +21,26 @@ export default function MediaControlCard() {
             justifyContent="flex-start"
           >
             <Stack direction="row" spacing={8}>
-              <TextField id="outlined-basic" label="Name" variant="outlined" />
               <TextField
                 id="outlined-basic"
-                label="Subject"
+                label="John Smith"
                 variant="outlined"
+                helperText={<Typography variant="subtitle2">Name</Typography>}
+              />
+              <TextField
+                id="outlined-basic"
+                label="Website Inquiry"
+                variant="outlined"
+                helperText={
+                  <Typography variant="subtitle2">Subject</Typography>
+                }
               />
             </Stack>
             <TextField
-              sx={{ width: "48rem" }}
               id="filled-multiline-flexible"
-              label="Multiline"
+              label="I was thinking..."
               rows={5}
+              helperText={<Typography variant="subtitle2">Message</Typography>}
               multiline
             />
             <Button variant="outlined" sx={{ width: 100, height: 35 }}>
