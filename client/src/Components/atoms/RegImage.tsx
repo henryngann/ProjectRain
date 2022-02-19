@@ -5,10 +5,20 @@ interface imageProps {
   height?: number;
   src?: string;
   id?: number;
+  flipped?: boolean;
 }
 
-const RegImage = ({ width, height, src, id }: imageProps) => {
-  return <img src={src} width={width} height={height} key={id} />;
+const RegImage = ({ width, height, src, id, flipped }: imageProps) => {
+  return (
+    <img
+      alt=""
+      src={src}
+      width={width}
+      height={height}
+      key={id}
+      style={flipped ? { transform: `scaleX(-1)` } : { transform: "0" }}
+    />
+  );
 };
 
 export default RegImage;

@@ -1,4 +1,3 @@
-import HomeIcon from "@mui/icons-material/Home";
 import MailIcon from "@mui/icons-material/Mail";
 import SearchIcon from "@mui/icons-material/Search";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
@@ -11,8 +10,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
-
-const drawerWidth = 240;
 
 const SideDrawer = () => {
   return (

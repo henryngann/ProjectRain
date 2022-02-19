@@ -6,49 +6,41 @@ import * as React from "react";
 
 export default function MediaControlCard() {
   return (
-    <Card sx={{ display: "flex" }} elevation={24}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Stack
-            direction="column"
-            spacing={3}
-            alignContent="flex-start"
-            justifyContent="flex-start"
-          >
-            <Stack direction="row" spacing={8}>
-              <TextField
-                id="outlined-basic"
-                label="John Smith"
-                variant="outlined"
-                helperText={<Typography variant="subtitle2">Name</Typography>}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Website Inquiry"
-                variant="outlined"
-                helperText={
-                  <Typography variant="subtitle2">Subject</Typography>
-                }
-              />
-            </Stack>
+    <Card elevation={24} sx={{ height: "45vh" }}>
+      <CardContent>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignContent="space-between"
+          justifyContent="space-between"
+        >
+          <Stack direction="row" spacing={8} mb={3}>
             <TextField
-              id="filled-multiline-flexible"
-              label="I was thinking..."
-              rows={5}
-              helperText={<Typography variant="subtitle2">Message</Typography>}
-              multiline
+              id="outlined-basic"
+              label="John Smith"
+              variant="outlined"
+              helperText={<Typography variant="subtitle2">Name</Typography>}
             />
-            <Button variant="outlined" sx={{ width: 100, height: 35 }}>
-              Submit
-            </Button>
+            <TextField
+              id="outlined-basic"
+              label="Website Inquiry"
+              variant="outlined"
+              helperText={<Typography variant="subtitle2">Subject</Typography>}
+            />
           </Stack>
-        </CardContent>
-      </Box>
+          <TextField
+            sx={{ marginBottom: 3 }}
+            id="filled-multiline-flexible"
+            label="I was thinking..."
+            fullWidth
+            rows={5}
+            helperText={<Typography variant="subtitle2">Message</Typography>}
+            multiline
+          />
+
+          <Button variant="outlined">Send Messenger Pigeon</Button>
+        </Box>
+      </CardContent>
     </Card>
   );
 }

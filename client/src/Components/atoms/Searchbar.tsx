@@ -4,11 +4,8 @@ import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
 import * as React from "react";
-import useRandomImageApi from "../../Hooks/useRandomImageApi";
 
 export default function SearchBar() {
-  const { doCall } = useRandomImageApi();
-
   return (
     <Paper
       component="form"

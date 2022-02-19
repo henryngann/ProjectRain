@@ -9,7 +9,8 @@ import FormCard from "../molecules/FormCard";
 import TopNavBar from "../organisms/TopNavBar";
 
 const ContactPage = () => {
-  const ariaLabel = { "aria-label": "description" };
+  const gnomeImage =
+    "https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/gnomechild.png";
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -24,10 +25,10 @@ const ContactPage = () => {
           <Typography variant="h2">Have an idea? Lets talk. </Typography>
         </Divider>
         {/* Search Bar Content Here*/}
-        <Box display="flex" justifyContent="center">
-          <RegImage src="https://github.com/henryngann/ProjectRain/blob/main/client/src/assets/gnomechild.png" />
+        <Box display="flex" justifyContent="space-between">
+          <RegImage src={gnomeImage} />
           <FormCard />
-          <RegImage />
+          <RegImage src={gnomeImage} flipped />
         </Box>
       </Box>
     </Box>

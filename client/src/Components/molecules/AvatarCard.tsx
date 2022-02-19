@@ -4,7 +4,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import ImageGif from "../atoms/ImageGif";
 import ProfilePicture from "../atoms/ProfilePicture";
 
 export default function AvatarCard() {
@@ -33,7 +32,14 @@ export default function AvatarCard() {
             </Grid>
             <Grid item mt={5}>
               <Typography variant="subtitle2" color="text.secondary">
-                Find more of my work here!
+                Find more of my work
+                <a
+                  style={{ textDecoration: "none" }}
+                  href="https://github.com/henryngann"
+                >
+                  {" "}
+                  here!
+                </a>
               </Typography>
             </Grid>
           </Grid>
