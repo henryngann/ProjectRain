@@ -26,24 +26,23 @@ const SideDrawer = () => {
       </Toolbar>
       <Divider />
       <List>
-        {["Home", "Search"].map((text, index) => (
-          <Link
-            to={`/${text}`}
-            style={{ textDecoration: "none", color: "#000000" }}
-          >
-            <ListItem button key={text} sx={{}}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <HomeIcon /> : <SearchIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          </Link>
-        ))}
+        <Link
+          to={`/Search`}
+          style={{ textDecoration: "none", color: "#000000" }}
+        >
+          <ListItem button sx={{}}>
+            <ListItemIcon>
+              <SearchIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Search"} />
+          </ListItem>
+        </Link>
       </List>
       <Divider />
       <List>
         {["Random", "Contact"].map((text, index) => (
           <Link
+            key={index}
             to={`/${text}`}
             style={{ textDecoration: "none", color: "#000000" }}
           >

@@ -3,6 +3,7 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import RegImage from "../atoms/RegImage";
 import AvatarCard from "../molecules/AvatarCard";
 import FormCard from "../molecules/FormCard";
 import TopNavBar from "../organisms/TopNavBar";
@@ -24,7 +25,9 @@ const ContactPage = () => {
         </Divider>
         {/* Search Bar Content Here*/}
         <Box display="flex" justifyContent="center">
+          <RegImage src="https://github.com/henryngann/ProjectRain/blob/main/client/src/assets/gnomechild.png" />
           <FormCard />
+          <RegImage />
         </Box>
       </Box>
     </Box>

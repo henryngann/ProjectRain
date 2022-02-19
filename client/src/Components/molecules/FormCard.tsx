@@ -6,7 +6,7 @@ import * as React from "react";
 
 export default function MediaControlCard() {
   return (
-    <Card sx={{ display: "flex" }}>
+    <Card sx={{ display: "flex" }} elevation={24}>
       <Box
         sx={{
           display: "flex",

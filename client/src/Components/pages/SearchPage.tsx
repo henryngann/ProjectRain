@@ -10,13 +10,11 @@ const SearchPage = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
-
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
         <Toolbar />
-
         <SearchBar />
         {/* Search Bar Content Here*/}
         <Box marginTop={30}>

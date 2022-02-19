@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NavButton = () => {
   return (
     <Grid item>
-      <Link to="/home">
+      <Link to="/Search">
         <Button>
           <ArrowForwardIcon />
         </Button>

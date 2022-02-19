@@ -9,7 +9,7 @@ import ProfilePicture from "../atoms/ProfilePicture";
 
 export default function AvatarCard() {
   return (
-    <Card sx={{ display: "flex" }}>
+    <Card sx={{ display: "flex" }} elevation={24}>
       <CardMedia sx={{ padding: 1 }}>
         <ProfilePicture />
       </CardMedia>
