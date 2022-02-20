@@ -23,7 +23,6 @@ const Random = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar title="Random Items! Go Crazy!" />
-
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
@@ -34,7 +33,6 @@ const Random = () => {
         height="80vh"
       >
         <Toolbar />
-
         <IconButton
           color="info"
           sx={{ p: "10px" }}
