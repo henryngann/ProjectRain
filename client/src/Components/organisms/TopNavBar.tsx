@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import SideDrawer from "../molecules/SideDrawer";
+import SideDrawer from "./SideDrawer";
 const TopNavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
