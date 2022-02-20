@@ -1,7 +1,8 @@
 import CasinoIcon from "@mui/icons-material/Casino";
 import { Grid, IconButton, Toolbar } from "@mui/material";
 import Box from "@mui/material/Box";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 import useRandomImageApi, { Root } from "../../Hooks/useRandomImageApi";
 import OSRSItems from "../organisms/OSRSItems";
 import TopNavBar from "../organisms/TopNavBar";
@@ -10,6 +11,10 @@ const Random = () => {
   const { doCall, error, isLoading } = useRandomImageApi();
 
   const [items, setItems] = useState<Root>();
+
+  useEffect(() => {
+    doCall().then((result) => setItems(result as Root)); // eslint-disable-next-line
+  }, []);
 
   const randomButton = () => {
     doCall().then((result) => setItems(result as Root));
@@ -36,9 +41,9 @@ const Random = () => {
           aria-label="directions"
           onClick={randomButton}
         >
-          <CasinoIcon sx={{ width: "10vh", height: "10vh" }} />
+          <CasinoIcon sx={{ width: "12vh", height: "12vh" }} />
         </IconButton>
-        <Box ml={5}>
+        <Box ml={isMobile ? 0 : 5}>
           <Grid container direction="row" spacing={3}>
             <OSRSItems result={items} error={error} isLoading={isLoading} />
           </Grid>
