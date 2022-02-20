@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import React from "react";
 import SearchBar from "../organisms/Searchbar";
 import TopNavBar from "../organisms/TopNavBar";

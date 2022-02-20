@@ -1,15 +1,18 @@
 import CasinoIcon from "@mui/icons-material/Casino";
 import { Grid, IconButton, Toolbar } from "@mui/material";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import React from "react";
+import React, { useState } from "react";
+import useRandomImageApi, { Root } from "../../Hooks/useRandomImageApi";
 import OSRSItems from "../organisms/OSRSItems";
 import TopNavBar from "../organisms/TopNavBar";
 
 const Random = () => {
+  const { doCall, error, isLoading } = useRandomImageApi();
+
+  const [items, setItems] = useState<Root>();
+
   const randomButton = () => {
-    console.log("pressed");
+    doCall().then((result) => setItems(result as Root));
   };
 
   return (
@@ -19,9 +22,13 @@ const Random = () => {
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        alignContent="space-between"
+        height="80vh"
       >
         <Toolbar />
-        {/* Search Bar Content Here*/}
 
         <IconButton
           color="info"
@@ -29,11 +36,13 @@ const Random = () => {
           aria-label="directions"
           onClick={randomButton}
         >
-          <CasinoIcon />
+          <CasinoIcon sx={{ width: "10vh", height: "10vh" }} />
         </IconButton>
-        <Grid container direction="row" spacing={4}>
-          <OSRSItems />
-        </Grid>
+        <Box ml={5}>
+          <Grid container direction="row" spacing={3}>
+            <OSRSItems result={items} error={error} isLoading={isLoading} />
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );
