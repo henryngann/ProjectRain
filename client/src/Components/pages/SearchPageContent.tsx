@@ -6,7 +6,7 @@ import React from "react";
 import SearchBar from "../organisms/Searchbar";
 import TopNavBar from "../organisms/TopNavBar";
 
-const SearchPage = () => {
+const SearchPageContent = () => {
   return (
     <Box sx={{ display: "flex" }}>
       <TopNavBar />
@@ -21,4 +21,4 @@ const SearchPage = () => {
     </Box>
   );
 };
-export default SearchPage;
+export default SearchPageContent;
