@@ -5,7 +5,11 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import SideDrawer from "./SideDrawer";
-const TopNavBar = () => {
+
+interface topNavProps {
+  title?: string;
+}
+const TopNavBar = ({ title }: topNavProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -34,7 +38,9 @@ const TopNavBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            A great way to find the info you've been looking for.
+            {title
+              ? title
+              : `A great way to find the info you've been looking for.`}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -14,7 +14,7 @@ const Random = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <TopNavBar />
+      <TopNavBar title="Random Items! Go Crazy!" />
 
       <Box
         component="main"
@@ -22,22 +22,18 @@ const Random = () => {
       >
         <Toolbar />
         {/* Search Bar Content Here*/}
-        <Box marginTop={30}>
-          <Divider textAlign="left" sx={{ marginY: 10 }}>
-            <Typography variant="h2">Random</Typography>
-          </Divider>
-          <IconButton
-            color="info"
-            sx={{ p: "10px" }}
-            aria-label="directions"
-            onClick={randomButton}
-          >
-            <CasinoIcon />
-          </IconButton>
-          <Grid container direction="row" spacing={4}>
-            <OSRSItems />
-          </Grid>
-        </Box>
+
+        <IconButton
+          color="info"
+          sx={{ p: "10px" }}
+          aria-label="directions"
+          onClick={randomButton}
+        >
+          <CasinoIcon />
+        </IconButton>
+        <Grid container direction="row" spacing={4}>
+          <OSRSItems />
+        </Grid>
       </Box>
     </Box>
   );

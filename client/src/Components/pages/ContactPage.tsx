@@ -14,7 +14,7 @@ const ContactPage = () => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <TopNavBar />
+      <TopNavBar title="Feel free to critique and break my website! " />
       <Box
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}

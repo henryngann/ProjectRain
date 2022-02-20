@@ -1,11 +1,21 @@
 import SearchIcon from "@mui/icons-material/Search";
+import { Input } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
 import * as React from "react";
+import { ChangeEvent, useState } from "react";
 
 export default function SearchBar() {
+  const [name, setName] = useState("");
+
+  const handleName = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = (e: ChangeEvent<HTMLInputElement>) => {};
+
   return (
     <Paper
       component="form"
@@ -18,7 +28,11 @@ export default function SearchBar() {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search OSRS Items"
         inputProps={{ "aria-label": "Search OSRS Items" }}
+        inputComponent={"input"}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleName(e)}
+        onSubmit={handleSubmit}
       />
+
       <IconButton
         type="submit"
         sx={{ p: "10px" }}

@@ -3,7 +3,7 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import SearchBar from "../molecules/Searchbar";
+import SearchBar from "../organisms/Searchbar";
 import TopNavBar from "../organisms/TopNavBar";
 
 const SearchPage = () => {
