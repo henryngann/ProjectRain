@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Hidden, Typography } from "@mui/material";
 import {
   BarElement,
   CategoryScale,
@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { isMobile } from "react-device-detect";
 
 ChartJS.register(
   CategoryScale,
@@ -52,28 +53,30 @@ const ItemGraph = ({
       <Typography variant="subtitle2" sx={{ mt: 2 }}>
         Item Released On: {itemRelease}
       </Typography>
-      <Box sx={{ width: 500, height: 500 }}>
-        <Bar
-          redraw
-          data={{
-            labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-            datasets: [
-              {
-                label: "GP",
-                data: [lowAlch, highAlch, itemCost],
-                backgroundColor: [
-                  "rgba(255, 206, 86, 0.6)",
-                  "rgba(54, 162, 235, 0.6)",
-                  "rgba(255, 99, 132, 0.6)",
-                ],
-              },
-            ],
-          }}
-          options={{
-            maintainAspectRatio: true,
-          }}
-        />
-      </Box>
+      <Hidden smDown>
+        <Box width={"20vw"} height={"20vh"}>
+          <Bar
+            redraw
+            data={{
+              labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+              datasets: [
+                {
+                  label: "GP",
+                  data: [lowAlch, highAlch, itemCost],
+                  backgroundColor: [
+                    "rgba(255, 206, 86, 0.6)",
+                    "rgba(54, 162, 235, 0.6)",
+                    "rgba(255, 99, 132, 0.6)",
+                  ],
+                },
+              ],
+            }}
+            options={{
+              maintainAspectRatio: true,
+            }}
+          />
+        </Box>
+      </Hidden>
     </Box>
   );
 };
