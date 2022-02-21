@@ -1,11 +1,13 @@
-import { CardActionArea, Stack } from "@mui/material";
+import { Box, CardActionArea, Modal, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useState } from "react";
 import ItemImage from "../atoms/ItemImage";
+import ItemGraph, { graphProps } from "./ItemGraph";
 
-interface CardProps {
+interface CardProps extends graphProps {
   width?: number;
   height?: number;
   image?: string;
@@ -24,6 +26,20 @@ export const ItemCard = ({
   itemDesc,
   onClick,
 }: CardProps) => {
+  const modalStyle = {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "55%",
+    transform: "translate(-50%, -50%)",
+    width: "70vw",
+    height: "80vh",
+    bgcolor: "white",
+    border: "2px solid #000",
+    opacity: 1,
+    boxShadow: 1,
+    p: 4,
+  };
+
   return (
     <Card sx={{ width: 164, height: 109 }}>
       <CardActionArea onClick={onClick}>
@@ -35,6 +51,10 @@ export const ItemCard = ({
             </Typography>
           </Stack>
         </CardContent>
+
+        <Box sx={modalStyle}>
+          <ItemGraph itemName={itemName} />
+        </Box>
       </CardActionArea>
     </Card>
   );

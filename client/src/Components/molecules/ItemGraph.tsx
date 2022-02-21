@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import {
   BarElement,
   CategoryScale,
@@ -18,35 +19,52 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-interface graphProps {
+export interface graphProps {
   highAlch?: number;
   lowAlch?: number;
   itemCost?: number;
   chartKey?: string;
   itemName?: string;
+  itemExamine?: string;
 }
 
-const ItemGraph = ({ highAlch, lowAlch, itemCost, chartKey }: graphProps) => {
+const ItemGraph = ({
+  highAlch,
+  lowAlch,
+  itemCost,
+  chartKey,
+  itemName,
+  itemExamine,
+}: graphProps) => {
   return (
-    <Bar
-      data={{
-        labels: ["lowAlch", "highAlch", "itemCost"],
-        datasets: [
-          {
-            label: "Coins",
-            data: [lowAlch, highAlch, itemCost],
-            backgroundColor: [
-              "rgba(255, 206, 86, 0.6)",
-              "rgba(54, 162, 235, 0.6)",
-              "rgba(255, 99, 132, 0.6)",
-            ],
-          },
-        ],
-      }}
-      options={{
-        maintainAspectRatio: true,
-      }}
-    />
+    <Box display="flex" flexDirection="column" key={chartKey}>
+      <Typography id="modal-modal-title" variant="h6" component="h2">
+        {itemName}
+      </Typography>
+      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        {itemExamine}
+      </Typography>
+      <Bar
+        redraw
+        data={{
+          labels: ["lowAlch", "highAlch", "itemCost"],
+          datasets: [
+            {
+              label: "Coins",
+              data: [lowAlch, highAlch, itemCost],
+              backgroundColor: [
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(255, 99, 132, 0.6)",
+              ],
+            },
+          ],
+        }}
+        options={{
+          maintainAspectRatio: true,
+        }}
+      />
+    </Box>
   );
 };
 
