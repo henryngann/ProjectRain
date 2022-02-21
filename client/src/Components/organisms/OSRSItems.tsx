@@ -20,7 +20,7 @@ const modalStyle = {
   height: "80vh",
   bgcolor: "white",
   border: "2px solid #000",
-  opacity: 0.1,
+  opacity: 1,
   boxShadow: 1,
   p: 4,
 };
@@ -65,13 +65,17 @@ const OSRSItems = ({ result, isLoading, error }: osrsItemProps) => {
                         variant="h6"
                         component="h2"
                       >
-                        Text in a modal
+                        {result?._items[it].name}
                       </Typography>
                       <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor
-                        ligula.
+                        {result._items[it].examine}
                       </Typography>
-                      <ItemGraph />
+                      <ItemGraph
+                        chartKey={result?._items[it].id}
+                        lowAlch={result._items[it].lowalch}
+                        highAlch={result._items[it].highalch}
+                        itemCost={result._items[it].cost}
+                      />
                     </Box>
                   </Box>
                 </Modal>
