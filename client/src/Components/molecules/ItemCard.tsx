@@ -12,6 +12,7 @@ interface CardProps {
   itemName?: string;
   itemDesc?: string;
   imageKey?: number;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const ItemCard = ({
@@ -21,10 +22,11 @@ export const ItemCard = ({
   itemName,
   imageKey,
   itemDesc,
+  onClick,
 }: CardProps) => {
   return (
     <Card sx={{ width: 164, height: 109 }}>
-      <CardActionArea>
+      <CardActionArea onClick={onClick}>
         <CardContent>
           <Stack direction="column" alignItems="center" justifyContent="center">
             <ItemImage src={image} width={50} height={50} id={imageKey} />
