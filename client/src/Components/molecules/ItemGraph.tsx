@@ -26,6 +26,8 @@ export interface graphProps {
   chartKey?: string;
   itemName?: string;
   itemExamine?: string;
+  itemRelease?: string;
+  itemUpdated?: string;
 }
 
 const ItemGraph = ({
@@ -35,35 +37,43 @@ const ItemGraph = ({
   chartKey,
   itemName,
   itemExamine,
+  itemUpdated,
+  itemRelease,
 }: graphProps) => {
   return (
     <Box display="flex" flexDirection="column" key={chartKey}>
-      <Typography id="modal-modal-title" variant="h6" component="h2">
+      <Typography variant="h6" component="h2">
         {itemName}
       </Typography>
-      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-        {itemExamine}
+      <Typography sx={{ mt: 2 }}>{itemExamine}</Typography>
+      <Typography variant="subtitle2" sx={{ mt: 2 }}>
+        Item Last Updated On: {itemUpdated}
       </Typography>
-      <Bar
-        redraw
-        data={{
-          labels: ["lowAlch", "highAlch", "itemCost"],
-          datasets: [
-            {
-              label: "Coins",
-              data: [lowAlch, highAlch, itemCost],
-              backgroundColor: [
-                "rgba(255, 206, 86, 0.6)",
-                "rgba(54, 162, 235, 0.6)",
-                "rgba(255, 99, 132, 0.6)",
-              ],
-            },
-          ],
-        }}
-        options={{
-          maintainAspectRatio: true,
-        }}
-      />
+      <Typography variant="subtitle2" sx={{ mt: 2 }}>
+        Item Released On: {itemRelease}
+      </Typography>
+      <Box sx={{ width: 500, height: 500 }}>
+        <Bar
+          redraw
+          data={{
+            labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+            datasets: [
+              {
+                label: "GP",
+                data: [lowAlch, highAlch, itemCost],
+                backgroundColor: [
+                  "rgba(255, 206, 86, 0.6)",
+                  "rgba(54, 162, 235, 0.6)",
+                  "rgba(255, 99, 132, 0.6)",
+                ],
+              },
+            ],
+          }}
+          options={{
+            maintainAspectRatio: true,
+          }}
+        />
+      </Box>
     </Box>
   );
 };
