@@ -1,4 +1,4 @@
-import { Box, Grid, Hidden, Stack, Typography } from "@mui/material";
+import { Box, Grid, Hidden, Typography } from "@mui/material";
 import {
   BarElement,
   CategoryScale,
@@ -10,8 +10,7 @@ import {
 } from "chart.js";
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { isMobile } from "react-device-detect";
-import { Link } from "react-router-dom";
+import ItemImage from "../atoms/ItemImage";
 import RegImage from "../atoms/RegImage";
 
 ChartJS.register(
@@ -31,6 +30,7 @@ export interface graphProps {
   itemExamine?: string;
   itemRelease?: string;
   itemUpdated?: string;
+  itemImage?: string;
   questItem?: boolean;
   tradeableGe?: boolean;
   wikiLink?: string;
@@ -43,6 +43,7 @@ const ItemGraph = ({
   itemCost,
   chartKey,
   itemName,
+  itemImage,
   itemExamine,
   itemUpdated,
   itemRelease,
@@ -51,11 +52,10 @@ const ItemGraph = ({
   wikiLink,
   members,
 }: graphProps) => {
-  const lowAlchImage = ``;
-  const coinsImage =
-    "https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/coins.png";
-  const highAlchImage = ``;
-  const generalStoreImage = ``;
+  const lowAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/Low_level_alchemy_icon.png`;
+
+  const highAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/High_Level_Alchemy_icon.png`;
+  const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
   return (
     <Grid container display="flex" flexDirection="column" key={chartKey}>
       <Grid
@@ -67,13 +67,16 @@ const ItemGraph = ({
       >
         <Grid item>
           <a href={wikiLink} style={{ textDecoration: "none" }}>
-            <Typography
-              variant="h6"
-              component="h2"
-              style={{ textDecoration: "none" }}
-            >
-              {itemName}
-            </Typography>
+            <Box display="flex" alignItems="center">
+              <ItemImage src={itemImage} />
+              <Typography
+                variant="h6"
+                component="h2"
+                style={{ textDecoration: "none" }}
+              >
+                {itemName}
+              </Typography>
+            </Box>
           </a>
 
           <Typography sx={{ mt: 2 }}>{itemExamine}</Typography>
@@ -89,88 +92,131 @@ const ItemGraph = ({
           </Grid>
         </Hidden>
       </Grid>
-      <Grid>
-        <Hidden smDown>
-          <Box width={"20vw"} height={"20vh"} mt={5}>
-            <Bar
-              redraw
-              data={{
-                labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-                datasets: [
-                  {
-                    label: "GP",
-                    data: [lowAlch, highAlch, itemCost],
-                    backgroundColor: [
-                      "rgba(255, 206, 86, 0.6)",
-                      "rgba(54, 162, 235, 0.6)",
-                      "rgba(255, 99, 132, 0.6)",
-                    ],
-                  },
-                ],
-              }}
-              options={{
-                maintainAspectRatio: true,
-              }}
-            />
-          </Box>
+      <Grid
+        container
+        item
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Grid item>
+          <Typography variant="subtitle2" sx={{ mt: 2 }}>
+            {questItem === true ? (
+              <>
+                This is a <span style={{ color: "orange" }}>Quest</span> Item!
+              </>
+            ) : (
+              <>
+                This is not a{" "}
+                <span style={{ color: "orange" }}>Quest Item!</span>
+              </>
+            )}
+          </Typography>
+          <Typography variant="subtitle2" sx={{ mt: 2 }}>
+            {tradeableGe === true ? (
+              <>
+                This is <span style={{ color: "green" }}>tradable!</span>
+              </>
+            ) : (
+              <>
+                This is <span style={{ color: "red" }}> not tradable!</span>
+              </>
+            )}
+          </Typography>
+          <Typography variant="subtitle2" sx={{ mt: 2 }}>
+            {members === true ? (
+              <>
+                This is <span style={{ color: "green" }}>a Members Item!</span>
+              </>
+            ) : (
+              <>
+                This is{" "}
+                <span style={{ color: "orange" }}>a Free to Play Item!</span>
+              </>
+            )}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Hidden smDown>
+            <Box width={"15vw"} height={"15vh"} mt={7}>
+              <Bar
+                redraw
+                data={{
+                  labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+                  datasets: [
+                    {
+                      label: "GP",
+                      data: [lowAlch, highAlch, itemCost],
+                      backgroundColor: [
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(54, 162, 235, 0.6)",
+                        "rgba(255, 99, 132, 0.6)",
+                      ],
+                    },
+                  ],
+                }}
+                options={{
+                  maintainAspectRatio: true,
+                }}
+              />
+            </Box>
+          </Hidden>
+        </Grid>
+
+        <Hidden smUp>
+          <Grid
+            container
+            display="flex"
+            flexDirection="column"
+            spacing={1}
+            mt={1}
+          >
+            {lowAlch ? (
+              <Grid
+                container
+                item
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                wrap="nowrap"
+              >
+                <RegImage src={lowAlchImage} width={18} height={18} />
+                <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                  {lowAlch} gp
+                </Typography>
+              </Grid>
+            ) : null}
+            {highAlch ? (
+              <Grid
+                container
+                item
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                wrap="nowrap"
+              >
+                <RegImage src={highAlchImage} width={18} height={18} />
+                <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                  {highAlch} gp
+                </Typography>
+              </Grid>
+            ) : null}
+            <Grid
+              container
+              item
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              wrap="nowrap"
+            >
+              <RegImage src={generalStoreImage} width={18} height={18} />
+              <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                {itemCost} gp
+              </Typography>
+            </Grid>
+          </Grid>
         </Hidden>
       </Grid>
-      <Hidden smUp>
-        <Stack display="flex" flexDirection="row" alignItems="center">
-          <RegImage src={lowAlchImage} width={18} height={18} />
-          <Typography variant="subtitle2" sx={{ mt: 0.9, mr: 1 }}>
-            : {lowAlch}
-          </Typography>
-        </Stack>
-        <Stack display="flex" flexDirection="row" alignItems="center">
-          <RegImage src={lowAlchImage} width={18} height={18} />
-          <Typography variant="subtitle2" sx={{ mt: 0.9, mr: 1 }}>
-            High Alchemy: {highAlch}
-          </Typography>
-
-          <RegImage src={coinsImage} width={18} height={18} />
-        </Stack>
-        <Stack display="flex" flexDirection="row" alignItems="center">
-          <Typography variant="subtitle2" sx={{ mt: 0.9, mr: 1 }}>
-            Item Cost: {itemCost}
-          </Typography>
-          <RegImage src={coinsImage} width={18} height={18} />
-        </Stack>
-      </Hidden>
-
-      {/* <Typography variant="subtitle2" sx={{ mt: 2 }}>
-        {questItem === true ? (
-          <>
-            This is a <span style={{ color: "orange" }}>Quest</span> Item!
-          </>
-        ) : (
-          <>
-            This is not a <span style={{ color: "red" }}>Quest Item!</span>
-          </>
-        )}
-      </Typography>
-      <Typography variant="subtitle2" sx={{ mt: 2 }}>
-        {tradeableGe === true ? (
-          <>
-            This is <span style={{ color: "green" }}>tradable!</span>
-          </>
-        ) : (
-          <>
-            This is <span style={{ color: "red" }}> not tradable!</span>
-          </>
-        )}
-      </Typography>
-      <Typography variant="subtitle2" sx={{ mt: 2 }}>
-        {members === true ? (
-          <>
-            This is <span style={{ color: "green" }}>a Members Item!</span>
-          </>
-        ) : (
-          <>
-            This is <span style={{ color: "red" }}>a Free to Play Item!</span>
-          </>
-        )}
-      </Typography> */}
     </Grid>
   );
 };

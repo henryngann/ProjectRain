@@ -1,5 +1,6 @@
-import { Box, Button, Grid, Modal, Typography } from "@mui/material";
+import { Box, Grid, Modal } from "@mui/material";
 import React, { useState } from "react";
+import { isMobile } from "react-device-detect";
 import { Item, Root } from "../../Hooks/useRandomImageApi";
 import ItemCard from "../molecules/ItemCard";
 import ItemGraph from "../molecules/ItemGraph";
@@ -16,8 +17,8 @@ const modalStyle = {
   top: "50%",
   left: "55%",
   transform: "translate(-50%, -50%)",
-  width: "30vw",
-  height: "70vh",
+  width: "35vw",
+  height: isMobile ? "90vh" : "45vh",
   bgcolor: "white",
   border: "2px solid #000",
   opacity: 1,
@@ -39,9 +40,6 @@ const OSRSItems = ({ result, isLoading, error }: osrsItemProps) => {
       {result && (
         <>
           {result._items.slice(1).map((item, it) => {
-            {
-              console.log(item);
-            }
             return (
               <Grid item xs={6} sm key={it}>
                 <ItemCard
@@ -69,6 +67,7 @@ const OSRSItems = ({ result, isLoading, error }: osrsItemProps) => {
           >
             <Box sx={modalStyle}>
               <ItemGraph
+                itemImage={modalItem?.icon}
                 tradeableGe={modalItem?.tradeable_on_ge}
                 questItem={modalItem?.quest_item}
                 itemName={modalItem?.name}
