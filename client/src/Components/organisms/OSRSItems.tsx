@@ -16,8 +16,8 @@ const modalStyle = {
   top: "50%",
   left: "55%",
   transform: "translate(-50%, -50%)",
-  width: "70vw",
-  height: "80vh",
+  width: "30vw",
+  height: "70vh",
   bgcolor: "white",
   border: "2px solid #000",
   opacity: 1,
@@ -78,6 +78,8 @@ const OSRSItems = ({ result, isLoading, error }: osrsItemProps) => {
                 itemCost={modalItem?.cost}
                 itemRelease={modalItem?.release_date}
                 itemUpdated={modalItem?.last_updated}
+                wikiLink={modalItem?.wiki_url}
+                members={modalItem?.members}
               />
             </Box>
           </Modal>
