@@ -69,6 +69,8 @@ const OSRSItems = ({ result, isLoading, error }: osrsItemProps) => {
           >
             <Box sx={modalStyle}>
               <ItemGraph
+                tradeableGe={modalItem?.tradeable_on_ge}
+                questItem={modalItem?.quest_item}
                 itemName={modalItem?.name}
                 itemExamine={modalItem?.examine}
                 lowAlch={modalItem?.lowalch}

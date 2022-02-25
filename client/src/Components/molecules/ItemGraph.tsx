@@ -29,6 +29,8 @@ export interface graphProps {
   itemExamine?: string;
   itemRelease?: string;
   itemUpdated?: string;
+  questItem?: boolean;
+  tradeableGe?: boolean;
 }
 
 const ItemGraph = ({
@@ -40,6 +42,8 @@ const ItemGraph = ({
   itemExamine,
   itemUpdated,
   itemRelease,
+  questItem,
+  tradeableGe,
 }: graphProps) => {
   return (
     <Box display="flex" flexDirection="column" key={chartKey}>
@@ -77,6 +81,40 @@ const ItemGraph = ({
           />
         </Box>
       </Hidden>
+      <Hidden smUp>
+        <Typography variant="subtitle2" sx={{ mt: 2 }}>
+          Low Alchemy: {lowAlch} -coin icon-
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mt: 2 }}>
+          High Alchemy: {highAlch} -coin icon-
+        </Typography>
+        <Typography variant="subtitle2" sx={{ mt: 2 }}>
+          Item Cost: {itemCost} -coin icon-
+        </Typography>
+      </Hidden>
+
+      <Typography variant="subtitle2" sx={{ mt: 2 }}>
+        {questItem === true ? (
+          <>
+            This is a <span style={{ color: "orange" }}>Quest</span> Item.
+          </>
+        ) : (
+          <>
+            This is not a <span style={{ color: "red" }}>Quest Item.</span>
+          </>
+        )}
+      </Typography>
+      <Typography variant="subtitle2" sx={{ mt: 2 }}>
+        {tradeableGe === true ? (
+          <>
+            This is <span style={{ color: "green" }}>tradable.</span>
+          </>
+        ) : (
+          <>
+            This is <span style={{ color: "red" }}> not tradable.</span>
+          </>
+        )}
+      </Typography>
     </Box>
   );
 };
