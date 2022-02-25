@@ -51,9 +51,11 @@ const ItemGraph = ({
   wikiLink,
   members,
 }: graphProps) => {
-  const lowAlchImage = `https://static.wikia.nocookie.net/2007scape/images/a/ab/Low_level_alchemy_icon.png/revision/latest?cb=20130802134837`;
+  const lowAlchImage = ``;
   const coinsImage =
     "https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/coins.png";
+  const highAlchImage = ``;
+  const generalStoreImage = ``;
   return (
     <Grid container display="flex" flexDirection="column" key={chartKey}>
       <Grid
@@ -121,6 +123,7 @@ const ItemGraph = ({
           </Typography>
         </Stack>
         <Stack display="flex" flexDirection="row" alignItems="center">
+          <RegImage src={lowAlchImage} width={18} height={18} />
           <Typography variant="subtitle2" sx={{ mt: 0.9, mr: 1 }}>
             High Alchemy: {highAlch}
           </Typography>
