@@ -63,23 +63,21 @@ const ItemGraph = ({
         item
         direction="row"
         justifyContent="space-between"
-        alignItems="baseline"
+        alignItems="center"
       >
         <Grid item>
           <a href={wikiLink} style={{ textDecoration: "none" }}>
             <Box display="flex" alignItems="center">
               <ItemImage src={itemImage} />
-              <Typography
-                variant="h6"
-                component="h2"
-                style={{ textDecoration: "none" }}
-              >
+              <Typography variant="h6" style={{ textDecoration: "none" }}>
                 {itemName}
               </Typography>
             </Box>
           </a>
 
-          <Typography sx={{ mt: 2 }}>{itemExamine}</Typography>
+          <Typography variant="subtitle2" sx={{ mt: 2 }}>
+            {itemExamine}
+          </Typography>
         </Grid>
         <Hidden smDown>
           <Grid item>
