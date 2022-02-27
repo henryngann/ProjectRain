@@ -18,7 +18,7 @@ const modalStyle = {
   left: "55%",
   transform: "translate(-50%, -50%)",
   width: isMobile ? "60vw" : "35vw",
-  height: isMobile ? "60vh" : "40vh",
+  height: isMobile ? "60vh" : "30vh",
   bgcolor: "white",
   border: "2px solid #000",
   opacity: 1,

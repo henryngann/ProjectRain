@@ -1,26 +1,8 @@
 import { Box, Grid, Hidden, Typography } from "@mui/material";
-import {
-  BarElement,
-  CategoryScale,
-  Chart as ChartJS,
-  Legend,
-  LinearScale,
-  Title,
-  Tooltip,
-} from "chart.js";
 import React from "react";
-import { Bar } from "react-chartjs-2";
 import ItemImage from "../atoms/ItemImage";
 import RegImage from "../atoms/RegImage";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
 export interface graphProps {
   highAlch?: number;
   lowAlch?: number;
@@ -53,7 +35,6 @@ const ItemGraph = ({
   members,
 }: graphProps) => {
   const lowAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/Low_level_alchemy_icon.png`;
-
   const highAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/High_Level_Alchemy_icon.png`;
   const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
   return (
@@ -64,8 +45,10 @@ const ItemGraph = ({
         direction="row"
         justifyContent="space-between"
         alignItems="center"
+        sm
+        xs={12}
       >
-        <Grid item>
+        <Grid item xs={12} sm={6}>
           <a href={wikiLink} style={{ textDecoration: "none" }}>
             <Box display="flex" alignItems="center">
               <ItemImage src={itemImage} />
@@ -80,7 +63,7 @@ const ItemGraph = ({
           </Typography>
         </Grid>
         <Hidden smDown>
-          <Grid item>
+          <Grid item xs sm={6}>
             <Typography variant="subtitle2" sx={{ mt: 2 }}>
               Item Last Updated On: {itemUpdated}
             </Typography>
@@ -89,15 +72,7 @@ const ItemGraph = ({
             </Typography>
           </Grid>
         </Hidden>
-      </Grid>
-      <Grid
-        container
-        item
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Grid item>
+        <Grid item xs sm={4}>
           <Typography variant="subtitle2" sx={{ mt: 2 }}>
             {questItem === true ? (
               <>
@@ -134,8 +109,62 @@ const ItemGraph = ({
             )}
           </Typography>
         </Grid>
-        <Grid item>
-          <Hidden smDown>
+        <Grid
+          container
+          item
+          display="flex"
+          flexDirection="column"
+          spacing={1}
+          mt={1}
+          mr={4}
+          xs={12}
+          sm={5}
+        >
+          {lowAlch ? (
+            <Grid
+              item
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              wrap="nowrap"
+            >
+              <RegImage src={lowAlchImage} width={18} height={18} />
+              <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                {lowAlch} gp
+              </Typography>
+            </Grid>
+          ) : null}
+          {highAlch ? (
+            <Grid
+              item
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              wrap="nowrap"
+            >
+              <RegImage src={highAlchImage} width={18} height={18} />
+              <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                {highAlch} gp
+              </Typography>
+            </Grid>
+          ) : null}
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={generalStoreImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {itemCost} gp
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid item>
+        {/* <Hidden smDown>
             <Box width={"15vw"} height={"15vh"} mt={7}>
               <Bar
                 redraw
@@ -158,62 +187,7 @@ const ItemGraph = ({
                 }}
               />
             </Box>
-          </Hidden>
-        </Grid>
-
-        <Hidden smUp>
-          <Grid
-            container
-            display="flex"
-            flexDirection="column"
-            spacing={1}
-            mt={1}
-          >
-            {lowAlch ? (
-              <Grid
-                container
-                item
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                wrap="nowrap"
-              >
-                <RegImage src={lowAlchImage} width={18} height={18} />
-                <Typography variant="subtitle2" sx={{ ml: 1 }}>
-                  {lowAlch} gp
-                </Typography>
-              </Grid>
-            ) : null}
-            {highAlch ? (
-              <Grid
-                container
-                item
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                wrap="nowrap"
-              >
-                <RegImage src={highAlchImage} width={18} height={18} />
-                <Typography variant="subtitle2" sx={{ ml: 1 }}>
-                  {highAlch} gp
-                </Typography>
-              </Grid>
-            ) : null}
-            <Grid
-              container
-              item
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              wrap="nowrap"
-            >
-              <RegImage src={generalStoreImage} width={18} height={18} />
-              <Typography variant="subtitle2" sx={{ ml: 1 }}>
-                {itemCost} gp
-              </Typography>
-            </Grid>
-          </Grid>
-        </Hidden>
+          </Hidden> */}
       </Grid>
     </Grid>
   );

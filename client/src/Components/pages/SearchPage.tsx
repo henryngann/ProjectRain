@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import React from "react";
@@ -13,8 +14,11 @@ const SearchPage = () => {
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
         <Toolbar />
-        <SearchBar />
-        {/* Search Bar Content Here*/}
+        <Grid container display="flex" flexDirection="column">
+          <Grid item xs>
+            <SearchBar />
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
