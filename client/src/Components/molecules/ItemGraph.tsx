@@ -162,33 +162,6 @@ const ItemGraph = ({
           </Grid>
         </Grid>
       </Grid>
-
-      <Grid item>
-        {/* <Hidden smDown>
-            <Box width={"15vw"} height={"15vh"} mt={7}>
-              <Bar
-                redraw
-                data={{
-                  labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-                  datasets: [
-                    {
-                      label: "GP",
-                      data: [lowAlch, highAlch, itemCost],
-                      backgroundColor: [
-                        "rgba(255, 206, 86, 0.6)",
-                        "rgba(54, 162, 235, 0.6)",
-                        "rgba(255, 99, 132, 0.6)",
-                      ],
-                    },
-                  ],
-                }}
-                options={{
-                  maintainAspectRatio: true,
-                }}
-              />
-            </Box>
-          </Hidden> */}
-      </Grid>
     </Grid>
   );
 };

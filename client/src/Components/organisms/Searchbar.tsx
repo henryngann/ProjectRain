@@ -1,4 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
+import { Box } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
@@ -12,9 +13,9 @@ import DetailedView from "../molecules/DetailedView";
 import ItemCard from "../molecules/ItemCard";
 
 export default function SearchBar() {
-  const [name, setName] = useState<string | undefined>();
+  const [name, setName] = useState<string | undefined>("");
   const [items, setItems] = useState<Root>();
-  const { doCall } = useItemHook();
+  const { doCall, error } = useItemHook();
 
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -61,14 +62,22 @@ export default function SearchBar() {
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       </Paper>
       <Toolbar />
-
-      {items ? (
-        <DetailedView
-          image={items?._items[0] ? items?._items[0].icon : `Not found`}
-          itemName={items?._items[0] ? items?._items[0].name : `Not Found`}
-          itemDesc={items?._items[0] ? items?._items[0].examine : `Not Found`}
-        />
-      ) : null}
+      <Box display="flex" justifyContent="center">
+        {items?._items[0] ? (
+          <DetailedView
+            image={items?._items[0].icon}
+            itemName={items?._items[0].name}
+            itemDesc={items?._items[0].examine}
+            itemCost={items?._items[0].cost}
+            lowAlch={items?._items[0].lowalch}
+            highAlch={items?._items[0].highalch}
+            itemUpdated={items?._items[0].last_updated}
+            itemRelease={items?._items[0].release_date}
+          />
+        ) : (
+          <>{name === "" ? `` : ``}</>
+        )}
+      </Box>
     </>
   );
 }
