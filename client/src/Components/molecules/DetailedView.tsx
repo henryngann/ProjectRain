@@ -11,7 +11,9 @@ import {
 } from "chart.js";
 import React from "react";
 import { Pie } from "react-chartjs-2";
+import { isMobile } from "react-device-detect";
 import {
+  buyLimitImage,
   coinsImage,
   freeToPlayImage,
   generalStoreImage,
@@ -79,38 +81,47 @@ const DetailedView = ({
   equipable,
 }: PaperProps) => {
   const graph = (
-    <Hidden smDown>
-      <Box width={"10vw"} height={"10vh"} mt={2}>
-        <Pie
-          redraw
-          data={{
-            labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-            datasets: [
-              {
-                label: "GP",
-                data: [lowAlch, highAlch, itemCost],
-                backgroundColor: [
-                  "rgba(255, 206, 86, 0.6)",
-                  "rgba(54, 162, 235, 0.6)",
-                  "rgba(255, 99, 132, 0.6)",
-                ],
-              },
-            ],
-          }}
-          options={{
-            maintainAspectRatio: true,
-          }}
-        />
-      </Box>
-    </Hidden>
+    <Box width="14vw" height="10vh">
+      <Pie
+        redraw
+        data={{
+          labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+          datasets: [
+            {
+              label: "GP",
+              data: [lowAlch, highAlch, itemCost],
+              backgroundColor: [
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(255, 99, 132, 0.6)",
+              ],
+            },
+          ],
+        }}
+        options={{
+          responsive: true,
+
+          plugins: {
+            legend: {
+              position: "right",
+            },
+          },
+        }}
+      />
+    </Box>
   );
   return (
     <Paper
-      variant="outlined"
-      elevation={24}
-      sx={{ width: "50vw", height: "55vh", p: 2 }}
+      elevation={20}
+      sx={{ width: "50vw", height: isMobile ? "75vh" : "55vh", p: 1 }}
     >
-      <Grid container display="flex" flexDirection="column" alignItems="center">
+      <Grid
+        container
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        mt={1}
+      >
         <Grid item>
           <ItemImage src={image} width={55} height={55} />
         </Grid>
@@ -124,21 +135,16 @@ const DetailedView = ({
         </Grid>
       </Grid>
       <Grid
+        item
+        ml={1}
+        mt={1}
+        mr={1}
+        spacing={4}
         container
         display="flex"
         flexDirection="row"
         alignItems="baseline"
-        justifyContent="space-evenly"
       >
-        {/* <Grid item xs sm={5}>
-          <Typography variant="subtitle2" sx={{ mt: 2 }}>
-            Item Last Updated On: {itemUpdated}
-          </Typography>
-          <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }}>
-            Item Released On: {itemRelease}
-          </Typography>
-        </Grid> */}
-
         <Grid
           container
           item
@@ -328,27 +334,46 @@ const DetailedView = ({
             alignItems="center"
             wrap="nowrap"
           >
-            <RegImage src={grandExchangeImage} width={18} height={18} />
+            <RegImage src={buyLimitImage} width={18} height={18} />
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
-              {tradeableGe ? `Buy Limit ${buyLimit}` : `No Buy Limit`}
+              {buyLimit ? `Buy Limit ${buyLimit}` : `No Buy Limit`}
             </Typography>
           </Grid>
         </Grid>
-        <Hidden smDown>
-          <Grid item xs sm>
-            {graph}
-          </Grid>
-          <Grid item xs sm>
-            {graph}
-          </Grid>
-          <Grid item xs sm>
-            {graph}
-          </Grid>
-          <Grid item xs sm>
-            {graph}
-          </Grid>
-        </Hidden>
       </Grid>
+      <Hidden smDown>
+        <Grid
+          container
+          item
+          display="flex"
+          justifyContent="space-between"
+          mt={5}
+          p={5}
+        >
+          <Grid item xs sm={4}>
+            <Typography variant="subtitle2" sx={{ mt: 2 }}>
+              Item Last Updated On: {itemUpdated}
+            </Typography>
+            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }}>
+              Item Released On: {itemRelease}
+            </Typography>
+          </Grid>
+          <Grid item xs sm={4}>
+            <Typography variant="subtitle2" sx={{ mt: 2 }} textAlign="right">
+              Item Last Updated On: {itemUpdated}
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{ mt: 2, mb: 1 }}
+              textAlign="right"
+            >
+              <a href={wikiLink} style={{ textDecoration: "none" }}>
+                Wiki Link
+              </a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Hidden>
     </Paper>
   );
 };
