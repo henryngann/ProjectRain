@@ -5,3 +5,4 @@ export const questImage =
   "https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/questicon.png";
 export const memberImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/membericon.png`;
 export const freeToPlayImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/freetoplayicon.png`;
+export const grandExchangeImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/grandexchangeicon.png`;

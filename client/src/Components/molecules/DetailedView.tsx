@@ -14,6 +14,7 @@ import { Pie } from "react-chartjs-2";
 import {
   freeToPlayImage,
   generalStoreImage,
+  grandExchangeImage,
   highAlchImage,
   lowAlchImage,
   memberImage,
@@ -112,7 +113,7 @@ const DetailedView = ({
             Item Released On: {itemRelease}
           </Typography>
         </Grid>
-        <Grid item>{graph}</Grid>
+
         <Grid
           container
           item
@@ -164,6 +165,19 @@ const DetailedView = ({
               {itemCost} gp
             </Typography>
           </Grid>
+        </Grid>
+
+        <Grid
+          container
+          item
+          display="flex"
+          flexDirection="column"
+          spacing={1}
+          mt={1}
+          mr={4}
+          xs={12}
+          sm={5}
+        >
           <Grid
             item
             display="flex"
@@ -187,6 +201,18 @@ const DetailedView = ({
 
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
               {members ? `Members Item` : `Free To Play Item`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={grandExchangeImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {tradeableGe ? `True` : `False`}
             </Typography>
           </Grid>
         </Grid>
