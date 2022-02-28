@@ -113,7 +113,7 @@ const DetailedView = ({
             Item Released On: {itemRelease}
           </Typography>
         </Grid>
-
+        <Grid item>{graph}</Grid>
         <Grid
           container
           item
