@@ -1,17 +1,23 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
-import React from "react";
-import ItemImage from "../atoms/ItemImage";
 import {
+  ArcElement,
   BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
   LinearScale,
   Title,
-  ArcElement,
   Tooltip,
 } from "chart.js";
-import { Bar, Pie } from "react-chartjs-2";
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import {
+  generalStoreImage,
+  highAlchImage,
+  lowAlchImage,
+  questImage,
+} from "../../assets/Images";
+import ItemImage from "../atoms/ItemImage";
 import RegImage from "../atoms/RegImage";
 interface PaperProps {
   image?: string;
@@ -54,10 +60,6 @@ const DetailedView = ({
   wikiLink,
   members,
 }: PaperProps) => {
-  const lowAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/Low_level_alchemy_icon.png`;
-  const highAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/High_Level_Alchemy_icon.png`;
-  const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
-
   const graph = (
     <Box width={"12vw"} height={"12vh"} mt={2}>
       <Pie
@@ -158,6 +160,18 @@ const DetailedView = ({
             <RegImage src={generalStoreImage} width={18} height={18} />
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
               {itemCost} gp
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={questImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {questItem ? `True` : `False`}
             </Typography>
           </Grid>
         </Grid>

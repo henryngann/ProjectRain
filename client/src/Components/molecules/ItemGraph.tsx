@@ -2,7 +2,12 @@ import { Box, Grid, Hidden, Typography } from "@mui/material";
 import React from "react";
 import ItemImage from "../atoms/ItemImage";
 import RegImage from "../atoms/RegImage";
-
+import {
+  generalStoreImage,
+  highAlchImage,
+  lowAlchImage,
+  questImage,
+} from "../../assets/Images";
 export interface graphProps {
   highAlch?: number;
   lowAlch?: number;
@@ -34,9 +39,6 @@ const ItemGraph = ({
   wikiLink,
   members,
 }: graphProps) => {
-  const lowAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/Low_level_alchemy_icon.png`;
-  const highAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/High_Level_Alchemy_icon.png`;
-  const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
   return (
     <Grid container display="flex" flexDirection="column" key={chartKey}>
       <Grid
@@ -62,16 +64,16 @@ const ItemGraph = ({
             {itemExamine}
           </Typography>
         </Grid>
-        <Hidden smDown>
-          <Grid item xs sm={6}>
-            <Typography variant="subtitle2" sx={{ mt: 2 }}>
-              Item Last Updated On: {itemUpdated}
-            </Typography>
-            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }}>
-              Item Released On: {itemRelease}
-            </Typography>
-          </Grid>
-        </Hidden>
+
+        <Grid item xs sm={6}>
+          <Typography variant="subtitle2" sx={{ mt: 2 }}>
+            Item Last Updated On: {itemUpdated}
+          </Typography>
+          <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }}>
+            Item Released On: {itemRelease}
+          </Typography>
+        </Grid>
+
         <Grid item xs sm={4}>
           <Typography variant="subtitle2" sx={{ mt: 2 }}>
             {questItem === true ? (
