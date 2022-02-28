@@ -12,3 +12,4 @@ export const coinsImage = `https://raw.githubusercontent.com/henryngann/ProjectR
 export const noteImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/noteimage.png`;
 export const natureImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/natureimage.png`;
 export const buyLimitImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/buylimitimage.png`;
+export const spellBookImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/spellbookimage.png`;

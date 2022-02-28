@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const NavButton = () => {
   return (
-    <Grid item>
+    <Grid item xs={1} sm={4}>
       <Link to="/Search">
         <Button>
           <ArrowForwardIcon />

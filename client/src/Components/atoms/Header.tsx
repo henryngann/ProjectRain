@@ -3,23 +3,16 @@ import React from "react";
 
 const Header = () => {
   return (
-    <Grid
-      container
-      item
-      direction="column"
-      justifyContent={"center"}
-      maxWidth={"10vw"}
-    >
+    <Grid container item sm={4} direction="column" justifyContent={"center"}>
       <Grid item>
-        <Typography variant="bigTitle">Project</Typography>
+        <Typography variant="bigTitle">OSRS.GG</Typography>
       </Grid>
-      <Box ml={1}>
-        <Grid item>
-          <Typography variant="subtitle1">
-            Track prices, buy smarter.
-          </Typography>
-        </Grid>
-      </Box>
+
+      <Grid item>
+        <Box ml={1}>
+          <Typography variant="subtitle1">Find more, learn smarter.</Typography>
+        </Box>
+      </Grid>
     </Grid>
   );
 };

@@ -1,13 +1,12 @@
-import { Box, Grid, Hidden, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import ItemImage from "../atoms/ItemImage";
-import RegImage from "../atoms/RegImage";
 import {
   generalStoreImage,
   highAlchImage,
   lowAlchImage,
-  questImage,
 } from "../../assets/Images";
+import ItemImage from "../atoms/ItemImage";
+import RegImage from "../atoms/RegImage";
 export interface graphProps {
   highAlch?: number;
   lowAlch?: number;

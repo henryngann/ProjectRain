@@ -10,23 +10,20 @@ import { ChangeEvent, useState } from "react";
 import useItemHook from "../../Hooks/useItemHook";
 import { Root } from "../../Hooks/useRandomImageApi";
 import DetailedView from "../molecules/DetailedView";
-import ItemCard from "../molecules/ItemCard";
 
 export default function SearchBar() {
   const [name, setName] = useState<string | undefined>("");
   const [items, setItems] = useState<Root>();
-  const { doCall, error } = useItemHook();
+  const { doCall } = useItemHook();
 
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
   const onSearchClick = () => {
-    {
-      name
-        ? doCall(name).then((result: any) => setItems(result as Root))
-        : console.log(`nothing`);
-    }
+    name
+      ? doCall(name).then((result: any) => setItems(result as Root))
+      : console.log(`nothing`);
   };
 
   /* REFACTOR NEEDED - Use OnSubmit instead of OnKeyDown */

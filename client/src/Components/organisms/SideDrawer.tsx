@@ -17,7 +17,7 @@ const SideDrawer = () => {
       <Toolbar>
         <Typography variant="h2">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            Snipp
+            OSRS.GG
           </Link>
         </Typography>
       </Toolbar>

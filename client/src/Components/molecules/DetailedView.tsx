@@ -1,4 +1,4 @@
-import { Box, Grid, Hidden, Paper, Typography } from "@mui/material";
+import { Grid, Hidden, Paper, Typography } from "@mui/material";
 import {
   ArcElement,
   BarElement,
@@ -10,7 +10,6 @@ import {
   Tooltip,
 } from "chart.js";
 import React from "react";
-import { Pie } from "react-chartjs-2";
 import { isMobile } from "react-device-detect";
 import {
   buyLimitImage,
@@ -80,36 +79,40 @@ const DetailedView = ({
   weight,
   equipable,
 }: PaperProps) => {
-  const graph = (
-    <Box width="14vw" height="10vh">
-      <Pie
-        redraw
-        data={{
-          labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-          datasets: [
-            {
-              label: "GP",
-              data: [lowAlch, highAlch, itemCost],
-              backgroundColor: [
-                "rgba(255, 206, 86, 0.6)",
-                "rgba(54, 162, 235, 0.6)",
-                "rgba(255, 99, 132, 0.6)",
-              ],
-            },
-          ],
-        }}
-        options={{
-          responsive: true,
+  //This view has an unused graph, and repeated code.
+  //Things to do :
+  //Extract grid items into reusable components
+  //Create a responsive graph for Alchable items
+  // const graph = (
+  //   <Box width="14vw" height="10vh">
+  //     <Pie
+  //       redraw
+  //       data={{
+  //         labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+  //         datasets: [
+  //           {
+  //             label: "GP",
+  //             data: [lowAlch, highAlch, itemCost],
+  //             backgroundColor: [
+  //               "rgba(255, 206, 86, 0.6)",
+  //               "rgba(54, 162, 235, 0.6)",
+  //               "rgba(255, 99, 132, 0.6)",
+  //             ],
+  //           },
+  //         ],
+  //       }}
+  //       options={{
+  //         responsive: true,
 
-          plugins: {
-            legend: {
-              position: "right",
-            },
-          },
-        }}
-      />
-    </Box>
-  );
+  //         plugins: {
+  //           legend: {
+  //             position: "right",
+  //           },
+  //         },
+  //       }}
+  //     />
+  //   </Box>
+  // );
   return (
     <Paper
       elevation={20}
@@ -358,17 +361,11 @@ const DetailedView = ({
               Item Released On: {itemRelease}
             </Typography>
           </Grid>
-          <Grid item xs sm={4}>
-            <Typography variant="subtitle2" sx={{ mt: 2 }} textAlign="right">
-              Item Last Updated On: {itemUpdated}
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{ mt: 2, mb: 1 }}
-              textAlign="right"
-            >
+          <Grid item xs sm={6}>
+            <Typography variant="subtitle2" sx={{ mt: 2 }}>
               <a href={wikiLink} style={{ textDecoration: "none" }}>
-                Wiki Link
+                For more information, click here to be sent to the item's
+                wikipedia page.
               </a>
             </Typography>
           </Grid>
