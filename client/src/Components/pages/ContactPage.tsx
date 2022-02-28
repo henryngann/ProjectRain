@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
@@ -20,7 +21,20 @@ const ContactPage = () => {
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
         <Toolbar />
-        <AvatarCard />
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          spacing={3}
+        >
+          <Grid item xs sm={2}>
+            <FormCard />
+          </Grid>
+          <Grid item xs sm={10}>
+            <AvatarCard />
+          </Grid>
+        </Grid>
+
         <Divider textAlign="center" sx={{ marginY: 5 }}>
           <Typography variant="h2">Have an idea? Lets talk. </Typography>
         </Divider>
