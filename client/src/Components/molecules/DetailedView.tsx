@@ -12,9 +12,11 @@ import {
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import {
+  freeToPlayImage,
   generalStoreImage,
   highAlchImage,
   lowAlchImage,
+  memberImage,
   questImage,
 } from "../../assets/Images";
 import ItemImage from "../atoms/ItemImage";
@@ -172,6 +174,19 @@ const DetailedView = ({
             <RegImage src={questImage} width={18} height={18} />
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
               {questItem ? `True` : `False`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={members ? memberImage : freeToPlayImage} />
+
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {members ? `Members Item` : `Free To Play Item`}
             </Typography>
           </Grid>
         </Grid>

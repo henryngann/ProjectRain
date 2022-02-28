@@ -3,3 +3,5 @@ export const highAlchImage = `https://raw.githubusercontent.com/henryngann/Proje
 export const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
 export const questImage =
   "https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/questicon.png";
+export const memberImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/membericon.png`;
+export const freeToPlayImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/freetoplayicon.png`;
