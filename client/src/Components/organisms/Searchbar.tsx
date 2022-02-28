@@ -73,6 +73,10 @@ export default function SearchBar() {
             highAlch={items?._items[0].highalch}
             itemUpdated={items?._items[0].last_updated}
             itemRelease={items?._items[0].release_date}
+            wikiLink={items?._items[0].wiki_url}
+            equipable={items?._items[0].equipable}
+            stackable={items?._items[0].stackable}
+            weight={items?._items[0].weight}
           />
         ) : (
           <>{name === "" ? `` : ``}</>

@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Hidden, Paper, Typography } from "@mui/material";
 import {
   ArcElement,
   BarElement,
@@ -35,6 +35,10 @@ interface PaperProps {
   questItem?: boolean;
   tradeableGe?: boolean;
   wikiLink?: string;
+  stackable?: boolean;
+  weight?: number;
+  notable?: boolean;
+  equipable?: boolean;
   members?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -64,48 +68,58 @@ const DetailedView = ({
   members,
 }: PaperProps) => {
   const graph = (
-    <Box width={"12vw"} height={"12vh"} mt={2}>
-      <Pie
-        redraw
-        data={{
-          labels: ["Low Alchemy", "High Alchemy", "Total Value"],
-          datasets: [
-            {
-              label: "GP",
-              data: [lowAlch, highAlch, itemCost],
-              backgroundColor: [
-                "rgba(255, 206, 86, 0.6)",
-                "rgba(54, 162, 235, 0.6)",
-                "rgba(255, 99, 132, 0.6)",
-              ],
-            },
-          ],
-        }}
-        options={{
-          maintainAspectRatio: true,
-        }}
-      />
-    </Box>
+    <Hidden smDown>
+      <Box width={"10vw"} height={"10vh"} mt={2}>
+        <Pie
+          redraw
+          data={{
+            labels: ["Low Alchemy", "High Alchemy", "Total Value"],
+            datasets: [
+              {
+                label: "GP",
+                data: [lowAlch, highAlch, itemCost],
+                backgroundColor: [
+                  "rgba(255, 206, 86, 0.6)",
+                  "rgba(54, 162, 235, 0.6)",
+                  "rgba(255, 99, 132, 0.6)",
+                ],
+              },
+            ],
+          }}
+          options={{
+            maintainAspectRatio: true,
+          }}
+        />
+      </Box>
+    </Hidden>
   );
   return (
     <Paper
       variant="outlined"
       elevation={24}
-      sx={{ width: "50vw", height: "50vh", p: 2 }}
+      sx={{ width: "50vw", height: "55vh", p: 2 }}
     >
       <Grid container display="flex" flexDirection="column" alignItems="center">
         <Grid item>
           <ItemImage src={image} width={55} height={55} />
         </Grid>
         <Grid item>
-          <Typography variant="h4">{itemName}</Typography>
+          <a href={wikiLink} style={{ textDecoration: "none" }}>
+            <Typography variant="h4">{itemName}</Typography>
+          </a>
         </Grid>
         <Grid item>
           <Typography variant="subtitle2">{itemDesc}</Typography>
         </Grid>
       </Grid>
-      <Grid container display="flex" flexDirection="row" alignItems="center">
-        <Grid item xs sm={6}>
+      <Grid
+        container
+        display="flex"
+        flexDirection="row"
+        alignItems="baseline"
+        justifyContent="space-evenly"
+      >
+        <Grid item xs sm={5}>
           <Typography variant="subtitle2" sx={{ mt: 2 }}>
             Item Last Updated On: {itemUpdated}
           </Typography>
@@ -113,7 +127,7 @@ const DetailedView = ({
             Item Released On: {itemRelease}
           </Typography>
         </Grid>
-        <Grid item>{graph}</Grid>
+
         <Grid
           container
           item
@@ -121,9 +135,8 @@ const DetailedView = ({
           flexDirection="column"
           spacing={1}
           mt={1}
-          mr={4}
           xs={12}
-          sm={5}
+          sm={3}
         >
           {lowAlch ? (
             <Grid
@@ -174,9 +187,8 @@ const DetailedView = ({
           flexDirection="column"
           spacing={1}
           mt={1}
-          mr={4}
           xs={12}
-          sm={5}
+          sm={3}
         >
           <Grid
             item
@@ -216,6 +228,20 @@ const DetailedView = ({
             </Typography>
           </Grid>
         </Grid>
+        <Hidden smDown>
+          <Grid item xs sm>
+            {graph}
+          </Grid>
+          <Grid item xs sm>
+            {graph}
+          </Grid>
+          <Grid item xs sm>
+            {graph}
+          </Grid>
+          <Grid item xs sm>
+            {graph}
+          </Grid>
+        </Hidden>
       </Grid>
     </Paper>
   );
