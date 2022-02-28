@@ -19,6 +19,7 @@ import {
   highAlchImage,
   lowAlchImage,
   memberImage,
+  natureImage,
   noteImage,
   questImage,
   tradeImage,
@@ -44,6 +45,7 @@ interface PaperProps {
   notable?: boolean;
   equipable?: boolean;
   members?: boolean;
+  buyLimit?: number;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -61,6 +63,7 @@ const DetailedView = ({
   itemDesc,
   itemName,
   image,
+  buyLimit,
   itemUpdated,
   itemRelease,
   lowAlch,
@@ -312,10 +315,10 @@ const DetailedView = ({
             alignItems="center"
             wrap="nowrap"
           >
-            <RegImage src={members ? memberImage : freeToPlayImage} />
+            <RegImage src={natureImage} width={18} height={18} />
 
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
-              {members ? `Members Item` : `Free To Play Item`}
+              202 gp
             </Typography>
           </Grid>
           <Grid
@@ -327,7 +330,7 @@ const DetailedView = ({
           >
             <RegImage src={grandExchangeImage} width={18} height={18} />
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
-              {tradeableGe ? `True` : `False`}
+              {tradeableGe ? `Buy Limit ${buyLimit}` : `No Buy Limit`}
             </Typography>
           </Grid>
         </Grid>

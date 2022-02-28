@@ -10,3 +10,4 @@ export const weightImage = `https://raw.githubusercontent.com/henryngann/Project
 export const tradeImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/tradableicon.png`;
 export const coinsImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/coinicon.png`;
 export const noteImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/noteimage.png`;
+export const natureImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/natureimage.png`;
