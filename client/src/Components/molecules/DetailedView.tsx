@@ -12,6 +12,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
+import RegImage from "../atoms/RegImage";
 interface PaperProps {
   image?: string;
   itemName?: string;
@@ -53,8 +54,12 @@ const DetailedView = ({
   wikiLink,
   members,
 }: PaperProps) => {
+  const lowAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/Low_level_alchemy_icon.png`;
+  const highAlchImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/High_Level_Alchemy_icon.png`;
+  const generalStoreImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/General_store_icon.png`;
+
   const graph = (
-    <Box width={"15vw"} height={"15vh"} mt={7}>
+    <Box width={"12vw"} height={"12vh"} mt={2}>
       <Pie
         redraw
         data={{
@@ -104,6 +109,58 @@ const DetailedView = ({
           </Typography>
         </Grid>
         <Grid item>{graph}</Grid>
+        <Grid
+          container
+          item
+          display="flex"
+          flexDirection="column"
+          spacing={1}
+          mt={1}
+          mr={4}
+          xs={12}
+          sm={5}
+        >
+          {lowAlch ? (
+            <Grid
+              item
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              wrap="nowrap"
+            >
+              <RegImage src={lowAlchImage} width={18} height={18} />
+              <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                {lowAlch} gp
+              </Typography>
+            </Grid>
+          ) : null}
+          {highAlch ? (
+            <Grid
+              item
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              wrap="nowrap"
+            >
+              <RegImage src={highAlchImage} width={18} height={18} />
+              <Typography variant="subtitle2" sx={{ ml: 1 }}>
+                {highAlch} gp
+              </Typography>
+            </Grid>
+          ) : null}
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={generalStoreImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {itemCost} gp
+            </Typography>
+          </Grid>
+        </Grid>
       </Grid>
     </Paper>
   );
