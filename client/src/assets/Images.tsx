@@ -6,3 +6,6 @@ export const questImage =
 export const memberImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/membericon.png`;
 export const freeToPlayImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/freetoplayicon.png`;
 export const grandExchangeImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/grandexchangeicon.png`;
+export const weightImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/weighticon.png`;
+export const tradeImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/tradableicon.png`;
+export const coinsImage = `https://raw.githubusercontent.com/henryngann/ProjectRain/main/client/src/assets/coinicon.png`;

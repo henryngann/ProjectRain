@@ -77,6 +77,7 @@ export default function SearchBar() {
             equipable={items?._items[0].equipable}
             stackable={items?._items[0].stackable}
             weight={items?._items[0].weight}
+            notable={items?._items[0].noteable}
           />
         ) : (
           <>{name === "" ? `` : ``}</>

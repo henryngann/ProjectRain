@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import {
+  coinsImage,
   freeToPlayImage,
   generalStoreImage,
   grandExchangeImage,
@@ -19,6 +20,8 @@ import {
   lowAlchImage,
   memberImage,
   questImage,
+  tradeImage,
+  weightImage,
 } from "../../assets/Images";
 import ItemImage from "../atoms/ItemImage";
 import RegImage from "../atoms/RegImage";
@@ -66,6 +69,10 @@ const DetailedView = ({
   tradeableGe,
   wikiLink,
   members,
+  notable,
+  stackable,
+  weight,
+  equipable,
 }: PaperProps) => {
   const graph = (
     <Hidden smDown>
@@ -119,14 +126,14 @@ const DetailedView = ({
         alignItems="baseline"
         justifyContent="space-evenly"
       >
-        <Grid item xs sm={5}>
+        {/* <Grid item xs sm={5}>
           <Typography variant="subtitle2" sx={{ mt: 2 }}>
             Item Last Updated On: {itemUpdated}
           </Typography>
           <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }}>
             Item Released On: {itemRelease}
           </Typography>
-        </Grid>
+        </Grid> */}
 
         <Grid
           container
@@ -179,7 +186,102 @@ const DetailedView = ({
             </Typography>
           </Grid>
         </Grid>
+        <Grid
+          container
+          item
+          display="flex"
+          flexDirection="column"
+          spacing={1}
+          mt={1}
+          xs={12}
+          sm={3}
+        >
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={questImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {questItem ? `True` : `False`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={members ? memberImage : freeToPlayImage} />
 
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {members ? `Members Item` : `Free To Play Item`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={grandExchangeImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {tradeableGe ? `True` : `False`}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          item
+          display="flex"
+          flexDirection="column"
+          spacing={1}
+          mt={1}
+          xs={12}
+          sm={3}
+        >
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={coinsImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {stackable ? `Stackable` : `Not Stackable`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={tradeImage} />
+
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {equipable ? `Equipable` : `Unequipable`}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            wrap="nowrap"
+          >
+            <RegImage src={weightImage} width={18} height={18} />
+            <Typography variant="subtitle2" sx={{ ml: 1 }}>
+              {weight ? weight : `No Weight`}
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid
           container
           item
