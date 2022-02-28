@@ -19,6 +19,7 @@ import {
   highAlchImage,
   lowAlchImage,
   memberImage,
+  noteImage,
   questImage,
   tradeImage,
   weightImage,
@@ -299,9 +300,9 @@ const DetailedView = ({
             alignItems="center"
             wrap="nowrap"
           >
-            <RegImage src={questImage} width={18} height={18} />
+            <RegImage src={noteImage} width={18} height={18} />
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
-              {questItem ? `True` : `False`}
+              {notable ? `Noteable` : `Unnoteable`}
             </Typography>
           </Grid>
           <Grid
